@@ -59,6 +59,7 @@ export const Container = styled.div`
           color: #fff;
           height: 100%;
           width: 80px;
+          font-weight: bold;
           font-size: 12px;
         }
 

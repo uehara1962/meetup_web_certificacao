@@ -22,6 +22,7 @@ export const DivImg = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  // background: #0d0d0d;
 `;
 
 export const Span = styled.span`
@@ -31,7 +32,7 @@ export const Span = styled.span`
 `;
 
 export const Img = styled.img`
-  height: ${props => (props.visible ? '50%' : '100%')};
+  height: ${props => (props.visible ? '50%' : '200px')};
   width: ${props => (props.visible ? '50%' : '100%')};
   opacity: ${props => (props.visible ? '0.5' : '1')};
 `;

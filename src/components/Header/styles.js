@@ -48,7 +48,7 @@ export const Profile = styled.div`
 
     strong {
       display: block;
-      color: #999;
+      color: #ddd;
     }
 
     a {

@@ -26,7 +26,7 @@ export const Container = styled.div`
 
       span {
         // color: #fff;
-        color: ${darken(0.21, '#fff')};
+        color: ${darken(0.4, '#fff')};
       }
 
       a {
@@ -68,6 +68,7 @@ export const Header = styled.header`
       height: 100%;
       width: 80px;
       font-size: 12px;
+      font-weight: bold;
     }
   }
 `;

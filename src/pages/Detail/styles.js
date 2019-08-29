@@ -40,6 +40,7 @@ export const Container = styled.div`
             color: #fff;
             height: 100%;
             width: 80px;
+            font-weight: bold;
             font-size: 12px;
           }
         }
@@ -66,7 +67,7 @@ export const DivImg = styled.div`
   height: 300px;
   background: #000;
   img {
-    height: 100%;
+    height: 300px;
     width: 100%;
   }
 `;
@@ -75,22 +76,29 @@ export const DivInfo = styled.div`
   display: flex;
   margin: 50px 0;
   max-width: 100%;
-  height: 65px;
+  height: 45px;
+  align-items: center;
 
   div {
-    margin-right: 20px;
     display: flex;
-    align-items: baseline;
+    align-items: center;
     img {
       width: 25px;
-      margin: 0 5px;
+      height: 25px;
+      margin-right: 5px;
     }
 
     span {
       color: #ccc;
       height: 100%;
-      width: 280px;
+      width: 200px;
       font-size: 14px;
+    }
+
+    &:nth-child(2) {
+      span {
+        width: 500px;
+      }
     }
   }
 `;
