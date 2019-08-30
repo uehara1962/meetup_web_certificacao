@@ -21,7 +21,7 @@ export const Container = styled.div`
       display: flex;
 
       a {
-        button {
+        > button {
           display: flex;
           align-items: center;
           border: 0;
@@ -44,11 +44,29 @@ export const Container = styled.div`
             font-size: 12px;
           }
         }
-        &:nth-child(2) {
-          margin-left: 10px;
-          button {
-            background: #ff366a;
-          }
+      }
+      button {
+        display: flex;
+        align-items: center;
+        border: 0;
+        width: 100px;
+        height: 32px;
+        margin-left: 10px;
+        border-radius: 3px;
+        background: #ff366a;
+        color: #fff;
+        img {
+          color: #fff;
+          width: 25px;
+          margin: 0 5px;
+        }
+
+        span {
+          color: #fff;
+          height: 100%;
+          width: 80px;
+          font-weight: bold;
+          font-size: 12px;
         }
       }
     }

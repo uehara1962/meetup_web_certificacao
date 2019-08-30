@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { format, parseISO } from 'date-fns';
-import { useDispatch } from 'react-redux';
 import pt from 'date-fns/locale/pt';
 import { Link } from 'react-router-dom';
 
 import api from '~/services/api';
-import { deleteMeetupRequest } from '~/store/modules/meetup/actions';
 
 import edit from '~/assets/edit.svg';
 import cancel from '~/assets/cancel.svg';
@@ -15,7 +13,6 @@ import location from '~/assets/location.svg';
 import { Container, DivImg, DivInfo } from './styles';
 
 export default function Detail({ match }) {
-  const dispatch = useDispatch();
   const [meetup, setmeetup] = useState({});
 
   useEffect(() => {
@@ -48,10 +45,6 @@ export default function Detail({ match }) {
     loadMeetup();
   }, [match.params.id]);
 
-  function handleSubmit(data) {
-    dispatch(deleteMeetupRequest(data));
-  }
-
   return (
     <Container>
       <header>
@@ -63,10 +56,12 @@ export default function Detail({ match }) {
               <span>Editar</span>
             </button>
           </Link>
-          <button type="button" onClick={() => handleSubmit(meetup.id)}>
-            <img src={cancel} alt="" />
-            <span>Cancelar</span>
-          </button>
+          <Link to={'/dashboard'}>
+            <button type="button" >
+              <img src={cancel} alt="" />
+              <span>Cancelar</span>
+            </button>
+          </Link>
         </div>
       </header>
       <DivImg image={meetup.url}>

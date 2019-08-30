@@ -27,9 +27,9 @@ export default function Default({ children }) {
     <Wrapper>
       <Header
         linkDashboard={
-          children.props.match.url === '/dashboard' ||
+          children.props.match.url === '/dashboard'
           // children.props.match.url === '/profile' ||
-          children.props.match.url.substring(0, 7) === '/detail'
+          // children.props.match.url.substring(0, 7) === '/detail'
         }
       />
       {children}
