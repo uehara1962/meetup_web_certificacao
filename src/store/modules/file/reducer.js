@@ -1,4 +1,4 @@
-import produce from 'immer'
+import produce from 'immer';
 
 const INITIAL_STATE = {
   // file: {
@@ -6,18 +6,18 @@ const INITIAL_STATE = {
   //   id: null,
   //   name: null
   // },
-  file: null
-}
+  file: null,
+};
 
-export default function file(state = INITIAL_STATE, action ){
+export default function file(state = INITIAL_STATE, action) {
   return produce(state, draft => {
     switch (action.type) {
       case '@file/INCLUDE_FILE_SUCCESS': {
-        draft.file = action.payload
-        console.log('reducer_file_acton: ', action)
-        break
+        draft.file = action.payload;
+        console.log('reducer_file_acton: ', action);
+        break;
       }
       default:
     }
-  })
+  });
 }

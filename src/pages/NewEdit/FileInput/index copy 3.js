@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 
 import api from '~/services/api';
+import photo2 from '~/assets/photo2.svg';
 
 import { Container, Span, DivImg, Img } from './styles';
 
@@ -8,7 +9,7 @@ export default function FileInput(props) {
   const { setfileId } = props;
   const ref = useRef();
   // const [file, setFile] = useState(fileId);
-  const [preview, setPreview] = useState('');
+  const [preview, setPreview] = useState(photo2);
   const [visible, setVisible] = useState(true);
 
   // console.log('image: ', image);
@@ -32,7 +33,6 @@ export default function FileInput(props) {
     data.append('file', e.target.files[0]);
 
     const response = await api.post('files', data);
-    console.tron.log('handleChange_response :', response);
 
     const { id, url } = response.data;
 

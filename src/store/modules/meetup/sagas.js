@@ -1,6 +1,6 @@
 import { all, takeLatest, call, put } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
-import { parseISO } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 
 import history from '~/services/history';
 import api from '~/services/api';
@@ -10,7 +10,7 @@ import {
   createMeetupFailure,
   updateMeetupSuccess,
   updateMeetupFailure,
-  deleteMeetupSuccess,
+  // deleteMeetupSuccess,
   deleteMeetupFailure,
 } from './actions';
 
@@ -26,10 +26,12 @@ export function* createMeetup({ payload }) {
       dateFormatted,
     } = payload.data;
 
-    const date = parseISO(dateFormatted);
+    // const date = parseISO(dateFormatted);
+    const date = format(dateFormatted, "yyyy-MM-dd'T'HH':'mm':'ss'-03:00'");
+    // console.tron.log('createMeetup_date :', date);
     const meetup = { title, file_id, description, location, date };
 
-    console.tron.log('createMeetupSuccess_meetup :', meetup);
+    console.tron.log('createMeetup_meetup :', meetup);
     const response = yield call(api.post, 'meetups/', meetup);
     toast.success('Meetup creado com sucesso!');
     yield put(createMeetupSuccess(response.data));
@@ -52,7 +54,8 @@ export function* updateMeetup({ payload }) {
       location,
       dateFormatted,
     } = payload.data;
-    const date = parseISO(dateFormatted);
+    // const date = parseISO(dateFormatted);
+    const date = format(dateFormatted, "yyyy-MM-dd'T'HH':'mm':'ss'-03:00'");
     const meetup = { title, file_id, description, location, date };
     console.tron.log('updateMeetup_meetup :', meetup);
     console.tron.log('updateMeetup_id :', id);
@@ -75,7 +78,7 @@ export function* deleteMeetup({ payload }) {
   // console.log('sagas_updateMeetup_payload: ', payload);
   // alert(payload.data);
   try {
-    const response = yield call(api.delete, `meetups/${payload.data}`);
+    yield call(api.delete, `meetups/${payload.data}`);
     // const response = yield call(api.put, 'meetup', meetup);
     toast.success('Meetup deletado com sucesso!');
     // yield put(deleteMeetupSuccess(response.data));

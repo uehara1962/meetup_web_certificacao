@@ -1,5 +1,9 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { format, parseISO } from 'date-fns';
+import pt from 'date-fns/locale/pt';
+import DatePicker, { registerLocale, setDefaultLocale } from 'react-datepicker';
+
+import 'react-datepicker/dist/react-datepicker.css';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 
@@ -26,6 +30,10 @@ export default function NewEdit({ match }) {
   const dispatch = useDispatch();
   const [meetup, setmeetup] = useState({});
   const [fileId, setfileId] = useState();
+  const [date, setDate] = useState(new Date());
+
+  registerLocale('pt', pt);
+  setDefaultLocale('pt');
   // console.tron.log('props :', props);
   // console.tron.log('match :', match);
 
@@ -76,7 +84,6 @@ export default function NewEdit({ match }) {
           name="dateFormatted"
           type="datetime-local"
           placeholder="Data do meetup"
-          required
         />
         <Input name="location" placeholder="Localização" />
 

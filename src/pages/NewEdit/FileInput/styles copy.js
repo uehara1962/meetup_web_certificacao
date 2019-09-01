@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import photo from '~/assets/photo.png';
 
 export const Container = styled.div`
   display: flex;
@@ -23,15 +22,13 @@ export const DivImg = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url(${photo});
-  background-repeat: no-repeat;
-  background-position: center;
+  // background: #0d0d0d;
 `;
 
 export const Span = styled.span`
   color: #7a7a72;
   opacity: 0.8;
-  margin-top: 20px;
+  padding-bottom: 40px;
 `;
 
 export const Img = styled.img`
